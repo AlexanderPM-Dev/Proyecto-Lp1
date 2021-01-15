@@ -6,10 +6,18 @@ import java.awt.Image;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
+/*Descripción:
+     Este panel contiene el menú y todas las llamadas a los otros paneles.
+      siendo, en general, el principal en sí.
+*/
+
 public class PanelPrincipal extends javax.swing.JFrame {
-    
-    
-    
+ /* Construtor do Painel Principal
+      Descripcion:
+      Panel de interfaz estándar junto con los métodos de
+      persistencia que copia todos los objetos del archivo Arte.ser
+      para la colección en la aplicación.
+*/    
     
     public PanelPrincipal() {
         p.setupLer();
@@ -19,10 +27,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
             cad = p.getCad();
         }
         initComponents();
-        this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());
-        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon("src/imagens/museu.png").getImage());// Coloca el icono en el panel principal
+        this.setLocationRelativeTo(null);// Hacer que el programa comience en el centro de la pantalla
     }
+ // --------METODOS----------------------
+    /*Método de prueba para la lista
+    Descripción:El método atraviesa la colección y comprueba si se envía la caída.
+                en el parámetro, devolviendo un valor de tipo booleano que es:
+                - TRUE: Cuando la caída recibida como parámetro es igual a la de otro en la colección.
+                 O
+                - FALSE: Cuando no hay igual caída en la colección.
     
+    
+    */
     private boolean existe_na_lista(int tomb) {
         for (Arte a : cad) {
             if (a.getTombo() == tomb) {
@@ -31,14 +48,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
         return false;
     }
+    /* Método que cambia la imagen de la bienvenida
+        Descripción:
+        Cuando se le llama, cambia la imagen del texto de bienvenida a
+        uno vacío con el objetivo de eliminar algo de la pantalla que
+        es más obligatorio.
+    */
      private void bem_vindo_vazio(){
-         // Criando um objeto do tipo ImageIcon e pegando o caminho no projeto
-         // aonde está a imagem que será mudada.
+         // Creando un objeto ImageIcon y tomando la ruta en el proyecto
+         // donde está la imagen que se cambiara
         ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/imagem_vazia.png"));
-         // Criando um objeto do tipo Image que recebe a imagem do icone com a largura e altura do Label do Bem Vindo
-         // com o objetivo de dimensioná-la e deixar preparada para ser jogada no Label.
+         // Creando un objeto de tipo Imagen que recibe la imagen del icono con el ancho y alto de la Etiqueta de Bienvenida
+         // para escalarlo y dejarlo listo para ser puesto  en el label..
         Image imagem = icone.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT);
-         // Mudando o icone do Label do Bem Vindo para a imagem recém dimensionada.
+         // Cambiando el ícono de Etiqueta a la imagen recién escalada.
         jLabel1.setIcon(new ImageIcon(imagem));
     }
     
@@ -62,9 +85,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         Image imagem = icone.getImage();
         jTelaPrincipal = new javax.swing.JDesktopPane(){
             /** Método Paint Component
-            *    Descrição:
-            *      Tal método sobreescreve a tela de fundo padrão do Painel da Área
-            *      de Trabalho do NetBeans.
+            *    Descripcion:
+            *      Este método anula el valor predeterminado del Panel de área
+            *      del trabajo de NetBeans.
             */
             public void paintComponent(Graphics g){
                 g.drawImage(imagem,0,0,getWidth(),getHeight(),this);
@@ -106,9 +129,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenidos al sistema de registros del museo");
+        jLabel1.setText("Bienvenidos al sistema de registros del museo de la Nación\n");
 
         jTelaPrincipal.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTelaPrincipal.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -128,16 +151,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(279, 279, 279))
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(260, 260, 260)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jTelaPrincipalLayout.setVerticalGroup(
             jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jTelaPrincipalLayout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(227, 227, 227)
                 .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,11 +175,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTelaPrincipal)
+            .addComponent(jTelaPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTelaPrincipal)
+            .addComponent(jTelaPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jTelaPrincipal.getAccessibleContext().setAccessibleDescription("");
@@ -222,7 +245,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*Items de Menu:
+      Item de Menu Registrar Nuevas Obras
+         Descripcion:
+          Abre una ventana para registrar una obra de arte en la colección.
+          perteneciente al museo.
+      */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
       PaneldeRegistro painelC = new PaneldeRegistro();
         painelC.setTitle("Cadastrar Obra de Arte");
@@ -232,16 +260,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
         
         bem_vindo_vazio();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    /*
+        Elemento del menú Buscar registros
+         Descripción:
+          Abre una ventana para buscar una obra de arte en la colección de
+          museo entre los que ya han sido registrados.
+    */
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-         PaneldeBusqueda painelP = new PaneldeBusqueda();
+        PaneldeBusqueda painelP = new PaneldeBusqueda();
         jTelaPrincipal.add(painelP);
         painelP.setPosicao();
         painelP.setVisible(true);
         
         bem_vindo_vazio();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
+    /*
+    /** Item de Menu Modificar Dados
+          Descripcion:
+          Abre un panel (PaneldeBusquedaTombo) que solicita el número del archivo y,
+          con lo que está escrito en él, recorre la colección para saber
+          Si esta caída existe, abra inmediatamente el
+          trabajo de edición.
+      */
+    
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         PaneldeBusquedaTombo painelT = new PaneldeBusquedaTombo();
         jTelaPrincipal.add(painelT);
@@ -254,7 +295,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
+    /** Boton Buscar
+          Descripcion: 
+            Abre una ventana para buscar una obra de arte en la colección de
+            museo entre los que ya han sido registrados.
+      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         PaneldeBusqueda painelP = new PaneldeBusqueda();
         jTelaPrincipal.add(painelP);
@@ -263,7 +308,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         bem_vindo_vazio();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /*
+      Boton Registrar
+        Descripción:
+            Abre una ventana para registrar una obra de arte en la colección.
+            perteneciente al museo.
+      
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         PaneldeRegistro painelC = new PaneldeRegistro();
         painelC.setTitle("Registrar Obra de Arte");
@@ -273,7 +324,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         bem_vindo_vazio();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+     Botões do Menu da Tela Principal
+        Boton Editar
+          Descripcion:
+            Abre un panel (PanelDeBusquedaTombo) que pide el número de archivo y,
+            con lo que está escrito en él, recorre la colección para saber
+            Si esta archivo existe, abra inmediatamente el
+            trabajos de edición.
+    */
+ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PaneldeBusquedaTombo painelT = new PaneldeBusquedaTombo();
         jTelaPrincipal.add(painelT);
@@ -333,8 +393,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jPanelPrincipal;
     protected static javax.swing.JDesktopPane jTelaPrincipal;
     // End of variables declaration//GEN-END:variables
-    // Outros Atributos:
+    // Otros Atributos:
     private static LinkedList<Arte> cad = new LinkedList<Arte>();
     private static Persistencia p = new Persistencia();
-    // Fim dos outros Atributos;
+    // Fin de otros atributos;
 }

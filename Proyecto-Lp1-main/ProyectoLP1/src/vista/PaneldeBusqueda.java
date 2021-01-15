@@ -4,13 +4,31 @@ import estructuras.Arte;
 import estructuras.Persistencia;
 import estructuras.ControlaEntradaTexto;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.LinkedList;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import static vista.PanelPrincipal.jTelaPrincipal;
-
-
+/** Panel de Busqueda de Obras de Artes
+     descripción:
+        Este panel tiene todo sobre la investigación de una obra de arte.
+        en la colección registrada.
+  
+                
+ */
 public class PaneldeBusqueda extends javax.swing.JInternalFrame {
-     
+
+    
+//-----------------------MÉTODOS-------------------:
+
+/**  Métodos Estáticos.
+     /** Método que Atualiza a Lista de Obras de Arte  
+          Descripción:
+            Percorre a coleção e exibe todos os itens formatados de
+            acordo com o modelo do método obj.
+*/ 
     protected static void atualiza_Arte() {
         p.setupLer();
 
@@ -29,9 +47,19 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
 
         }
     }
+/** Metodo de Atualizar a Tabela Instantaneamente
+          Descripcion:
+            Actualiza la tabla de búsqueda tan pronto como se realizan cambios
+            hecho en una obra de arte.
+*/
+
     static void atualizacao_Instantanea() {
         atualiza_Arte();
     }
+/** Método do Modelo de Exposición
+        Descripción:
+            El método crea el modelo que se mostrará en la tabla de búsqueda.
+*/
     protected static Object[] obj(Arte a) {
         try {
             Object[] arte = {a.getTitulo(), a.getAño(), a.getNombre(), a.getCategoria(), a.getTombo()};
@@ -40,18 +68,35 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
         }
         return null;
     }
+   
+/** Método que Fecha a Janela Aberta:
+        Descripción:
+            El método simplemente cierra completamente la ventana abierta actualmente
+            cómo se llama.
+*/
     private void fecha_Janela() {
         this.dispose();
     }
+/** Método que Centraliza a Janela 
+        Descripción:
+            El método captura el tamaño del panel y, a través de ese valor,
+            hace que las ventanas se abran en el centro de ese panel.
+*/
     public void setPosicao() {
         Dimension d = jTelaPrincipal.getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
     
-    
+        
+ /** Construtor:
+        Descripción:
+            Ejecuta el método atualiza_Arte que se abre, lee el archivo y actualiza
+            lista.
+*/
     
     
     public PaneldeBusqueda() {
+   
         initComponents();
         atualiza_Arte();
         getRootPane().setDefaultButton(jBPesquisaRes);
@@ -91,7 +136,7 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "NOMBRE", "AÑO DE PRODUCCION", "ARTISTA", "CATEGORIA", "TOMBO"
+                "NOMBRE", "AÑO DE PRODUCCION", "ARTISTA", "CATEGORIA", "ARCHIVO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -257,6 +302,12 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCategoriaPesquisaActionPerformed
 
+/** Botón de opción Nombre del artista
+      * Descripcion:
+      * Cuando se presiona genera un evento que habilita la escritura
+      * en el campo de búsqueda del nombre del artista y deshabilita en otros
+      * dos.
+*/
     private void botaoNomeArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNomeArtistaActionPerformed
         if (botaoNomeArtista.isSelected()) {
             txtPesquisaArtista.setEnabled(true);
@@ -273,7 +324,12 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
             
         }
     }//GEN-LAST:event_botaoNomeArtistaActionPerformed
-
+/** Nombre de categoría Botón de opción
+          Descripción:
+            Cuando se presiona, genera un evento que habilita la selección
+            en el cuadro combinado de categoría y deshabilite los campos para
+         texto.
+*/
     private void botaoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCategoriaActionPerformed
         if (botaoCategoria.isSelected()) {
             cbCategoriaPesquisa.setEnabled(true);
@@ -289,7 +345,12 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
             botaoTitulo.setEnabled(true);
         }
     }//GEN-LAST:event_botaoCategoriaActionPerformed
-
+// Botones de radio:
+/** Botón de opción Título de la obra
+      * Descripcion:
+        Cuando se presiona genera un evento que habilita la escritura
+        en el campo de búsqueda de títulos y desactívelo en los otros dos.
+*/
     private void botaoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTituloActionPerformed
         if (botaoTitulo.isSelected()) {
             txtPesquisaNome.setEnabled(true);
@@ -306,6 +367,12 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_botaoTituloActionPerformed
 
+/** Botón de búsqueda
+      * Descripcion:
+       Cuando se presiona, captura el botón de radio que se seleccionó
+       y el campo cumplimentado para que, con estos datos, puedas navegar 
+      por la colección en busca de todos los objetos que tengan los mismos datos.
+*/
     private void jBPesquisaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaResActionPerformed
         if (botaoTitulo.isSelected()) {
             DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
@@ -338,11 +405,20 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jBPesquisaResActionPerformed
-
+/** Botón de reinicio
+      * Descripcion:
+      * Cuando se presiona, restaura la lista de obras de arte al
+      * su formato estándar donde se muestran todos los trabajos.
+*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+        atualiza_Arte();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+// Eventos de botón y clic:
+/** Botón de registro
+      * Descripcion:
+        Abre una nueva ventana de registro y cierra la ventana de búsqueda.
+*/
     private void jBFecharPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFecharPesquisaActionPerformed
         PaneldeRegistro painelC = new PaneldeRegistro();
         jTelaPrincipal.add(painelC);
@@ -351,7 +427,11 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
         painelC.setPosicao();
         this.dispose();
     }//GEN-LAST:event_jBFecharPesquisaActionPerformed
-
+/** Evento de mouseclicked en la fila de la tabla
+      * Descripcion:
+       Después de hacer clic en una de las filas de la tabla, se abre en una ventana.
+       toda la información sobre la obra de arte.
+*/
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
          PaneldeMuestra painelA = new PaneldeMuestra(p.getArte(jTable1.rowAtPoint(evt.getPoint())).getTombo());
         jTelaPrincipal.add(painelA);
@@ -385,6 +465,8 @@ public class PaneldeBusqueda extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPesquisaArtista;
     private javax.swing.JTextField txtPesquisaNome;
     // End of variables declaration//GEN-END:variables
- private static Persistencia p = new Persistencia();
+    // Otros Atributos:
+    private static Persistencia p = new Persistencia();
     protected static LinkedList<Arte> cad = new LinkedList<Arte>();
+    // Fin de otros atributos;
 }

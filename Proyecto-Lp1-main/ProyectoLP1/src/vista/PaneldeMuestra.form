@@ -41,27 +41,33 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblmostrartitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrartiempoproduccion" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostraraño" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrarcategoria" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrarnombreartistat" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrarregistroartista" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrartipoprocedencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblmostrarorigenprocedencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="botaoEditar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelImagem" min="-2" pref="152" max="-2" attributes="0"/>
-                              <Component id="botaoFechar" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrartitulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrartiempoproduccion" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostraraño" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrarcategoria" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrarnombreartistat" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrarregistroartista" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrartipoprocedencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrarorigenprocedencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblmostrartombo" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="botaoEditar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="108" max="32767" attributes="0"/>
+                                  <Component id="botaoFechar" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <Component id="lblmostrartombo" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                          <Component id="labelImagem" min="-2" pref="178" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -69,8 +75,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="labelImagem" min="-2" pref="135" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelImagem" min="-2" pref="147" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblmostrartitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="lblmostraraño" min="-2" max="-2" attributes="0"/>
@@ -88,7 +94,7 @@
                   <Component id="lblmostrarorigenprocedencia" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblmostrartombo" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace pref="80" max="32767" attributes="0"/>
+                  <EmptySpace pref="84" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botaoEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botaoFechar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -109,7 +115,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoFechar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fechar"/>
+            <Property name="text" type="java.lang.String" value="Cerrar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoFecharActionPerformed"/>

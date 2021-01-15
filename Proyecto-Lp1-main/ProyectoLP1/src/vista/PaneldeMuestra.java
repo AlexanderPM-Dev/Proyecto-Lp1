@@ -91,7 +91,7 @@ public class PaneldeMuestra extends javax.swing.JInternalFrame {
             }
         });
 
-        botaoFechar.setText("Fechar");
+        botaoFechar.setText("Cerrar");
         botaoFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoFecharActionPerformed(evt);
@@ -123,31 +123,35 @@ public class PaneldeMuestra extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblmostrartitulo)
-                    .addComponent(lblmostrartiempoproduccion)
-                    .addComponent(lblmostraraño)
-                    .addComponent(lblmostrarcategoria)
-                    .addComponent(lblmostrarnombreartistat)
-                    .addComponent(lblmostrarregistroartista)
-                    .addComponent(lblmostrartipoprocedencia)
-                    .addComponent(lblmostrarorigenprocedencia)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(botaoEditar)
-                        .addGap(55, 55, 55)
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoFechar)))
-                    .addComponent(lblmostrartombo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                            .addComponent(lblmostrartitulo)
+                            .addComponent(lblmostrartiempoproduccion)
+                            .addComponent(lblmostraraño)
+                            .addComponent(lblmostrarcategoria)
+                            .addComponent(lblmostrarnombreartistat)
+                            .addComponent(lblmostrarregistroartista)
+                            .addComponent(lblmostrartipoprocedencia)
+                            .addComponent(lblmostrarorigenprocedencia)
+                            .addComponent(lblmostrartombo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(botaoEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                .addComponent(botaoFechar))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(136, 136, 136))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblmostrartitulo)
                 .addGap(25, 25, 25)
                 .addComponent(lblmostraraño)
@@ -165,7 +169,7 @@ public class PaneldeMuestra extends javax.swing.JInternalFrame {
                 .addComponent(lblmostrarorigenprocedencia)
                 .addGap(18, 18, 18)
                 .addComponent(lblmostrartombo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoEditar)
                     .addComponent(botaoFechar))
@@ -201,11 +205,11 @@ public class PaneldeMuestra extends javax.swing.JInternalFrame {
                         painelE.setVisible(true);
                         break;
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Tombo não Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Archivo no Encontrado.", "Aviso", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
                 } catch (NumberFormatException n) {
-                    JOptionPane.showMessageDialog(rootPane, "Caractere digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(rootPane, "Caracter digitado Inválido.", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
                 errado = false;
             }
